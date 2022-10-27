@@ -33,7 +33,7 @@ def get_reddit_data(subreddit_name):
     df = pd.DataFrame()
 
     for post in rt.subreddit(subreddit_name).hot(limit=500):
-        if post.media != None and post.over_18 == False: # Include only posts with media and exclude NSFW posts
+        if post.media != None and post.over_18 == False and post.media['type'] in ('youtube.com', 'open.spotify.com'): # Include only posts with media and exclude NSFW posts
             if len(df) < 150:
                 df = pd.concat([df, pd.DataFrame([{
                     'r_title': post.title,
