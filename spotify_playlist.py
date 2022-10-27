@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO)
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 # Import data
-song_data = pd.read_csv("data/spotify_song_data_%s.csv" % (str(datetime.date.today())))
+song_data = pd.read_csv("data/spotify_top_100_songs_%s.csv" % (str(datetime.date.today())))
 logging.critical("\n---DataFrame created from import 'spotify_song_data_%s.csv'---\n" % (str(datetime.date.today())))
 
 # Get user access to edit Spotify playlist
