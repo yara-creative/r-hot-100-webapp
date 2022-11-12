@@ -78,7 +78,7 @@ def get_spotify_features(df):
                     # Get album features via Spotify API
                     track_result = sp.track(track_id, market=None)
                     # Add results to features dictionary
-                    feats_dict['sp_artwork_640px'] = track_result['album']['images'][2]['url'] 
+                    feats_dict['sp_artwork_640px'] = track_result['album']['images'][0]['url'] 
                     date = pd.to_datetime(track_result['album']['release_date']) 
                     feats_dict['sp_release_date'] = date
                     feats_dict['sp_release_year'] = int(date.year)
