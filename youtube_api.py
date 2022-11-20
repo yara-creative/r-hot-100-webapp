@@ -49,13 +49,16 @@ def get_youtube_data(df):
         
         # Extract relevant data 
         video_dict = {}
-        video_dict['yt_video_id'] = res['items'][0]['id']
-        video_dict['video_title'] = res['items'][0]['snippet']['title']
-        video_dict['channel_title'] = res['items'][0]['snippet']['channelTitle']
-        video_dict['publish_date'] = res['items'][0]['snippet']['publishedAt']
-        video_dict['vid_duration'] = res['items'][0]['contentDetails']['duration']
-        video_dict['view_count'] = res['items'][0]['statistics']['viewCount']        
-        video_dict['thumbnail_standard'] = res['items'][0]['snippet']['thumbnails']['high']['url']
+        try:
+            video_dict['yt_video_id'] = res['items'][0]['id']
+            video_dict['video_title'] = res['items'][0]['snippet']['title']
+            video_dict['channel_title'] = res['items'][0]['snippet']['channelTitle']
+            video_dict['publish_date'] = res['items'][0]['snippet']['publishedAt']
+            video_dict['vid_duration'] = res['items'][0]['contentDetails']['duration']
+            video_dict['view_count'] = res['items'][0]['statistics']['viewCount']        
+            video_dict['thumbnail_standard'] = res['items'][0]['snippet']['thumbnails']['high']['url']
+        except IndexError:
+            continue
         try:
             video_dict['like_count'] = res['items'][0]['statistics']['likeCount']
         except:
