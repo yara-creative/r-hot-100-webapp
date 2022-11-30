@@ -105,7 +105,7 @@ st.title("🔥 r/ Daily Hot 100")
 st.subheader("Discover today's hottest songs recommended on Reddit.")
 st.markdown("New playlists and charts generated every day from song posts on [r/Music](%s) and [r/ListenToThis](%s)." % ("https://www.reddit.com/r/Music/", "https://www.reddit.com/r/ListenToThis/"))
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Playlists", "Charts", "Today's Extremes", "Dashboard", "Feedback"])
+tab1, tab2, tab3, tab5 = st.tabs(["Playlists", "Charts", "Today's Extremes", "Feedback"])
 
 ###---Playlist pages---###
 with tab1:
@@ -335,140 +335,140 @@ with tab3:
 
 
 ###---Dashboard page---###
-with tab4:
+# with tab4:
 
-    logging.info("\n---Setting up Dashboard page...---\n")
-    st.title("Dashboard")
-    st.markdown("##### Dive into the stats behind today's Hot 100 songs and artists.")
+#     logging.info("\n---Setting up Dashboard page...---\n")
+#     st.title("Dashboard")
+#     st.markdown("##### Dive into the stats behind today's Hot 100 songs and artists.")
 
-    col1, col2 = st.columns([0.3, 0.7])
-    with col1:
-        logging.info("\n---Displaying Average values---\n")
-        st.markdown("#### Today's averages: ")
+#     col1, col2 = st.columns([0.3, 0.7])
+#     with col1:
+#         logging.info("\n---Displaying Average values---\n")
+#         st.markdown("#### Today's averages: ")
 
-        st.markdown(f"### {int(sp['r_score'].median())} upvotes")
-        st.markdown("Reddit popularity (median)")
+#         st.markdown(f"### {int(sp['r_score'].median())} upvotes")
+#         st.markdown("Reddit popularity (median)")
 
-        st.markdown(f"### {sp['sp_popularity'].mean()} / 100")
-        st.markdown("Spotify popularity")
+#         st.markdown(f"### {sp['sp_popularity'].mean()} / 100")
+#         st.markdown("Spotify popularity")
         
-        st.markdown(f"### {int(sp['valence'].mean())} / 100")
-        st.markdown("Valence (song happiness)")
+#         st.markdown(f"### {int(sp['valence'].mean())} / 100")
+#         st.markdown("Valence (song happiness)")
         
-        st.markdown(f"### {int(sp['tempo'].mean())} bpm")
-        st.markdown("Tempo")
+#         st.markdown(f"### {int(sp['tempo'].mean())} bpm")
+#         st.markdown("Tempo")
         
-        st.markdown(f"### {int(sp['energy'].mean())} / 100")
-        st.markdown("Energy")
+#         st.markdown(f"### {int(sp['energy'].mean())} / 100")
+#         st.markdown("Energy")
 
-        st.markdown(f"### {int(sp['danceability'].mean())} / 100")
-        st.markdown("Danceability")
+#         st.markdown(f"### {int(sp['danceability'].mean())} / 100")
+#         st.markdown("Danceability")
         
-        st.markdown(f"### {int(sp['loudness'].mean())} dB")
-        st.markdown("Loudness")
+#         st.markdown(f"### {int(sp['loudness'].mean())} dB")
+#         st.markdown("Loudness")
 
-        st.markdown(f"### {int(sp['speechiness'].mean())} / 100")
-        st.markdown("Speechiness (talking vs. melodic)")
+#         st.markdown(f"### {int(sp['speechiness'].mean())} / 100")
+#         st.markdown("Speechiness (talking vs. melodic)")
 
-        st.markdown(f"### {int(sp['acousticness'].mean())} / 100")
-        st.markdown("Acousticness")
+#         st.markdown(f"### {int(sp['acousticness'].mean())} / 100")
+#         st.markdown("Acousticness")
 
-        st.markdown(f"### {int(sp['instrumentalness'].mean())} / 100")
-        st.markdown("Instrumentalness (instruments vs. vocals)")
+#         st.markdown(f"### {int(sp['instrumentalness'].mean())} / 100")
+#         st.markdown("Instrumentalness (instruments vs. vocals)")
 
-        st.markdown(f"### {int(sp['liveness'].mean())} / 100")
-        st.markdown("Liveness (live  audience detection)")
+#         st.markdown(f"### {int(sp['liveness'].mean())} / 100")
+#         st.markdown("Liveness (live  audience detection)")
 
-    with col2:
-        # Scatterplot Reddit upvotes by mood
-        logging.info("\n---Displaying Scatterplot Reddit upvotes by mood...---\n")
-        fig1 = px.scatter(sp, x='tempo', y='valence', color='danceability',
-                        hover_name="r_title", hover_data=["r_genres", "sp_popularity"],
-                        size="r_score", size_max=55,
-                        title='Popularity of song by mood, i.e. valence vs. tempo (size shows popularity)',
-                        labels={
-                            "sp_popularity": "Spotify popularity (0-100)",
-                            "r_score": "Reddit upvotes",
-                            "valence": "Valence / Happiness (0-100)",
-                            "tempo": "Tempo (bpm)",
-                            "r_genres": "Genres",
-                            "danceability": "Song danceability (0-100)"
-                        })
-        st.write(fig1)
+#     with col2:
+#         # Scatterplot Reddit upvotes by mood
+#         logging.info("\n---Displaying Scatterplot Reddit upvotes by mood...---\n")
+#         fig1 = px.scatter(sp, x='tempo', y='valence', color='danceability',
+#                         hover_name="r_title", hover_data=["r_genres", "sp_popularity"],
+#                         size="r_score", size_max=55,
+#                         title='Popularity of song by mood, i.e. valence vs. tempo (size shows popularity)',
+#                         labels={
+#                             "sp_popularity": "Spotify popularity (0-100)",
+#                             "r_score": "Reddit upvotes",
+#                             "valence": "Valence / Happiness (0-100)",
+#                             "tempo": "Tempo (bpm)",
+#                             "r_genres": "Genres",
+#                             "danceability": "Song danceability (0-100)"
+#                         })
+#         st.write(fig1)
             
-        # Histogram release years
-        logging.info("\n---Displaying Histogram release years...---\n")
-        decades = []
-        for year in sp['sp_release_year']:
-            decade = int(np.floor(year / 10) * 10)
-            decades.append(decade)
+#         # Histogram release years
+#         logging.info("\n---Displaying Histogram release years...---\n")
+#         decades = []
+#         for year in sp['sp_release_year']:
+#             decade = int(np.floor(year / 10) * 10)
+#             decades.append(decade)
                     
-        bins_decades=len(set(decades))
-        fig6 = px.histogram(sp,
-                            x='sp_release_year',
-                            nbins=bins_decades,
-                            title="Number of songs by decade",
-                            labels={
-                            "count": "Count",
-                            "sp_release_year": "Release year"
-                            })
-        st.write(fig6)
+#         bins_decades=len(set(decades))
+#         fig6 = px.histogram(sp,
+#                             x='sp_release_year',
+#                             nbins=bins_decades,
+#                             title="Number of songs by decade",
+#                             labels={
+#                             "count": "Count",
+#                             "sp_release_year": "Release year"
+#                             })
+#         st.write(fig6)
         
-        # Pie chart explicit tracks
-        logging.info("\n---Displaying Pie chart explicit tracks...---\n")
-        values = sp['sp_explicit'].value_counts()
-        names = ['not explicit', 'explicit']
-        fig2 = px.pie(sp, 
-                        values=values, 
-                        names=names, 
-                        title="Percentage of explicit songs"
-                    )
-        st.write(fig2)
+#         # Pie chart explicit tracks
+#         logging.info("\n---Displaying Pie chart explicit tracks...---\n")
+#         values = sp['sp_explicit'].value_counts()
+#         names = ['not explicit', 'explicit']
+#         fig2 = px.pie(sp, 
+#                         values=values, 
+#                         names=names, 
+#                         title="Percentage of explicit songs"
+#                     )
+#         st.write(fig2)
 
-        # Bar plot Key signature vs. Spotify popularity
-        logging.info("\n---Displaying Bar plot Key signature vs. Spotify popularity...---\n")
-        fig3 = px.bar(sp, x="key", y="sp_popularity", color='r_score', orientation='v',
-                    hover_data=["r_title", "r_score"],
-                    height=400,
-                    title='Song popularity per key signature',
-                    labels={
-                            "sp_popularity": "Spotify popularity score (0-100)",
-                            "r_score": "Reddit upvotes",
-                            "key": "Key signature"
-                        })
-        st.write(fig3)
+#         # Bar plot Key signature vs. Spotify popularity
+#         logging.info("\n---Displaying Bar plot Key signature vs. Spotify popularity...---\n")
+#         fig3 = px.bar(sp, x="key", y="sp_popularity", color='r_score', orientation='v',
+#                     hover_data=["r_title", "r_score"],
+#                     height=400,
+#                     title='Song popularity per key signature',
+#                     labels={
+#                             "sp_popularity": "Spotify popularity score (0-100)",
+#                             "r_score": "Reddit upvotes",
+#                             "key": "Key signature"
+#                         })
+#         st.write(fig3)
 
-        # # Map of song tempo by country
-        # logging.info("\n---Displaying Map of song tempo by country...---\n")
-        # fig4 = px.choropleth(countries,
-        #                     locations="country_ISO-3", 
-        #                     locationmode="ISO-3", 
-        #                     scope="world",
-        #                     color="tempo",
-        #                     color_continuous_scale="Viridis_r",
-        #                     title="Average song tempo by country",
-        #                     labels={
-        #                         "artist_country_ISO-3": "Country",
-        #                         "tempo": "Song tempo (bpm)"
-        #                     })
-        # st.write(fig4)
+#         # # Map of song tempo by country
+#         # logging.info("\n---Displaying Map of song tempo by country...---\n")
+#         # fig4 = px.choropleth(countries,
+#         #                     locations="country_ISO-3", 
+#         #                     locationmode="ISO-3", 
+#         #                     scope="world",
+#         #                     color="tempo",
+#         #                     color_continuous_scale="Viridis_r",
+#         #                     title="Average song tempo by country",
+#         #                     labels={
+#         #                         "artist_country_ISO-3": "Country",
+#         #                         "tempo": "Song tempo (bpm)"
+#         #                     })
+#         # st.write(fig4)
 
-        # Most underground vs. mainstream tracks
-        logging.info("\n---Displaying Most underground vs. mainstream tracks...---\n")
-        fig5 = px.scatter(sp, x='sp_artist_popularity', 
-                    y='sp_popularity', 
-                    color='sp_follower_count',
-                    hover_name="r_title",
-                    hover_data=['sp_genres'],
-                    title='Most underground (lower left) vs. mainstream tracks (upper right)',
-                    labels={
-                        "r_title": "Track",
-                        "sp_genres": "Genres",
-                        "sp_popularity": "Spotify song popularity (0-100)",
-                        "sp_follower_count": "Spotify followers",
-                        "sp_artist_popularity": "Spotify artist popularity (0-100)"
-                    })
-        st.write(fig5)
+#         # Most underground vs. mainstream tracks
+#         logging.info("\n---Displaying Most underground vs. mainstream tracks...---\n")
+#         fig5 = px.scatter(sp, x='sp_artist_popularity', 
+#                     y='sp_popularity', 
+#                     color='sp_follower_count',
+#                     hover_name="r_title",
+#                     hover_data=['sp_genres'],
+#                     title='Most underground (lower left) vs. mainstream tracks (upper right)',
+#                     labels={
+#                         "r_title": "Track",
+#                         "sp_genres": "Genres",
+#                         "sp_popularity": "Spotify song popularity (0-100)",
+#                         "sp_follower_count": "Spotify followers",
+#                         "sp_artist_popularity": "Spotify artist popularity (0-100)"
+#                     })
+#         st.write(fig5)
 
         # # Reddit upvotes vs. Spotify popularity
         # logging.info("\n---Displaying Reddit upvotes vs. Spotify popularity...---\n")
