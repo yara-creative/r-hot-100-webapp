@@ -19,7 +19,7 @@ import logging
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 # Set up warnings
-warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
+#warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 ###---Import data---###
 
