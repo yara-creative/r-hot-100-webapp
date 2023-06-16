@@ -13,7 +13,7 @@ import os
 import re
 from IPython.display import HTML
 import warnings
-from pandas.core.common import SettingWithCopyWarning
+#from pandas.core.common import SettingWithCopyWarning
 import logging
 
 # Set up logging
