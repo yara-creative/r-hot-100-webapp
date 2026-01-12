@@ -45,7 +45,9 @@ def get_max_date(list):
                 
         return str(max_date)
 
-latest_date = get_max_date(files_list)
+# Since app is frozen in time - set latest date to a hardcoded date
+#latest_date = get_max_date(files_list)
+latest_date = '2022-09-18'
 
 # Embed links for playlists
 from spotify_links import spotify_embed_src, spotify_playlist_link
