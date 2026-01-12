@@ -87,7 +87,7 @@ st.set_page_config(
  
 # with st.sidebar:
 #     choose = option_menu("r/ Daily Hot 100", ["Playlists", "Charts",
-#                         "Today's Extremes", "Dashboard"],
+#                         "Today's Extremes", "Dashboard", "Feedback"],
 #                          icons=['boombox', 'bar-chart', 'exclamation-circle', 'speedometer', 'chat-text'],
 #                          menu_icon="music-note-beamed",
 #                          default_index=0,
@@ -109,7 +109,7 @@ st.markdown("New playlists and charts generated every day from song posts on [r/
 st.markdown("Note: This app is no longer live. Data frozen on March 13, 2023.")
 
 
-tab1, tab2, tab3, tab5 = st.tabs(["Playlists", "Charts", "Today's Extremes"])
+tab1, tab2, tab3 = st.tabs(["Playlists", "Charts", "Today's Extremes"])
 
 ###---Playlist pages---###
 with tab1:
