@@ -106,6 +106,8 @@ logging.info("\n---Streamlit configured---\n")
 st.title("🔥 r/ Daily Hot 100")
 st.subheader("Discover today's hottest songs recommended on Reddit.")
 st.markdown("New playlists and charts generated every day from song posts on [r/Music](%s) and [r/ListenToThis](%s)." % ("https://www.reddit.com/r/Music/", "https://www.reddit.com/r/ListenToThis/"))
+st.markdown("Note: This app is no longer live. Data frozen on March 13, 2023.")
+
 
 tab1, tab2, tab3, tab5 = st.tabs(["Playlists", "Charts", "Today's Extremes", "Feedback"])
 
