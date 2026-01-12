@@ -87,7 +87,7 @@ st.set_page_config(
  
 # with st.sidebar:
 #     choose = option_menu("r/ Daily Hot 100", ["Playlists", "Charts",
-#                         "Today's Extremes", "Dashboard", "Your Feedback"],
+#                         "Today's Extremes", "Dashboard"],
 #                          icons=['boombox', 'bar-chart', 'exclamation-circle', 'speedometer', 'chat-text'],
 #                          menu_icon="music-note-beamed",
 #                          default_index=0,
@@ -109,7 +109,7 @@ st.markdown("New playlists and charts generated every day from song posts on [r/
 st.markdown("Note: This app is no longer live. Data frozen on March 13, 2023.")
 
 
-tab1, tab2, tab3, tab5 = st.tabs(["Playlists", "Charts", "Today's Extremes", "Feedback"])
+tab1, tab2, tab3, tab5 = st.tabs(["Playlists", "Charts", "Today's Extremes"])
 
 ###---Playlist pages---###
 with tab1:
@@ -501,10 +501,10 @@ with tab3:
     logging.info("\n---Dashboard page ready---\n")
 
 ###---Feedback page---###
-with tab5:
+#with tab5:
 
-    logging.info("\n---Setting up Feedback page...---\n")
-    st.subheader("Your Feedback")
-    st.markdown("Help improve this web app!\n If the form doesn't show up below, click [here](https://forms.gle/yDRBDT11fhb7dTQV8).")
-    components.iframe(src="https://docs.google.com/forms/d/e/1FAIpQLSf3yu7dwmCD0kx4THNpJUEsRkdnTyMcE74EKk7-YRNrkaM95w/viewform?embedded=true", width=640, height=1090)
-    logging.info("\n---Feedback page ready---\n")
+    #logging.info("\n---Setting up Feedback page...---\n")
+    #st.subheader("Your Feedback")
+    #st.markdown("Help improve this web app!\n If the form doesn't show up below, click [here](https://forms.gle/yDRBDT11fhb7dTQV8).")
+    #components.iframe(src="https://docs.google.com/forms/d/e/1FAIpQLSf3yu7dwmCD0kx4THNpJUEsRkdnTyMcE74EKk7-YRNrkaM95w/viewform?embedded=true", width=640, height=1090)
+    #logging.info("\n---Feedback page ready---\n")
